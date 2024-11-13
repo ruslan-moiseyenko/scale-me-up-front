@@ -63,7 +63,8 @@ export function GithubSearch() {
     currentPage,
     pathname,
     router,
-    searchParams
+    searchParams,
+    searchQuery
   ]);
 
   // Fetch repositories
@@ -198,7 +199,9 @@ export function GithubSearch() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {repositories.map((repo) => (
             <Card key={repo.id} className="p-4">
-              <h3 className="text-lg font-semibold">{repo.name}</h3>
+              <a href={repo.html_url} target="_blank" rel="noreferrer">
+                <h3 className="text-lg font-semibold">{repo.name}</h3>
+              </a>
               <p className="text-sm text-gray-600 mt-2">{repo.description}</p>
               <div className="flex items-center justify-between mt-4">
                 <div className="space-x-4">
